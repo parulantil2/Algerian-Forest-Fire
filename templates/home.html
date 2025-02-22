@@ -1,0 +1,61 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FWI Prediction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card p-4 shadow-lg">
+            <h1 class="text-center">FWI Prediction</h1>
+
+            Form for input
+            <form action="{{ url_for('predict_datapoint') }}" method="post" class="mt-4">
+                <div class="mb-3">
+                    <input type="text" name="Temperature" class="form-control" placeholder="Temperature" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="RH" class="form-control" placeholder="RH" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="Ws" class="form-control" placeholder="Ws" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="Rain" class="form-control" placeholder="Rain" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="FFMC" class="form-control" placeholder="FFMC" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="DMC" class="form-control" placeholder="DMC" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="ISI" class="form-control" placeholder="ISI" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="Classes" class="form-control" placeholder="Classes" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" name="Region" class="form-control" placeholder="Region" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Predict</button>
+            </form>
+
+            Display Prediction Result
+            {% if results %}
+            <h2 class="text-center mt-4">The FWI Prediction is: <strong>{{ results }}</strong></h2>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+
+
